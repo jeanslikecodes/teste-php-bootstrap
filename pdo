@@ -1,0 +1,81 @@
+/**
+	SELECT INCREMENTADO
+
+		$buscarusuario=$pdo->prepare("SELECT * FROM usuarios WHERE username=:username AND senha=:senha");
+
+		$buscarusuario->bindValue(":username", $usuariot);
+		$buscarusuario->bindValue(":senha", $senhat);
+
+		$buscarusuario->execute();
+		
+		RETORNA UM OBJETO
+			$linha=$buscarusuario->fetchAll(PDO::FETCH_OBJ);
+				
+				foreach ($linha as $listar) {
+					echo "Nome: ".$listar->nome."<br/>";
+				}
+
+		PERCORRE TODOS
+			$linha=$buscarusuario->fetchAll(PDO::FETCH_ASSOC);
+			
+			foreach ($linha as $listar) {
+				echo "Nome: ".$listar['nome']."<br/>";
+			}
+
+		FETCH UM POR UM
+			$linha=$buscarusuario->fetch(PDO::FETCH_ASSOC);
+
+			while ($linha=$buscarusuario->fetch(PDO::FETCH_ASSOC)) {
+				echo "Nome: ".$linha['nome']."<br/>";
+			}
+
+
+
+	/** SELECT SIMPLES
+
+		$buscasegura=$pdo->prepare("SELECT * FROM usuarios WHERE username=:username AND senha=:senha");
+		$buscasegura->bindValue(":username", "$usuariot");
+		$buscasegura->bindValue(":senha", "$senhat");
+
+		$buscasegura->execute();
+
+		echo $buscasegura->rowCount(); 
+
+
+	INSERT
+		// Prepara o cadastro
+			$buscasegura=$pdo->prepare("INSERT INTO usuarios(nome, email, username, senha,nivel_acesso_id)VALUES(:nome,:email,:username,:senha,:nivel_acesso_id)");
+
+			$buscasegura->bindValue(":nome", "suzana");
+			$buscasegura->bindValue(":email", "suzana");
+			$buscasegura->bindValue(":username", "suzana");
+			$buscasegura->bindValue(":senha", "suzana");
+			$buscasegura->bindValue(":nivel_acesso_id", 1);
+		
+		// Executa o cadastro
+			$buscasegura->execute();
+ 
+ 	INSERT COM VALIDAÇÃO
+
+		// Prepara o cadastro
+				$buscasegura=$pdo->prepare("INSERT INTO usuarios(nome, email, username, senha,nivel_acesso_id)VALUES(:nome,:email,:username,:senha,:nivel_acesso_id)");
+
+				$buscasegura->bindValue(":nome", "suzana");
+				$buscasegura->bindValue(":email", "suzana");
+				$buscasegura->bindValue(":username", "suzana");
+				$buscasegura->bindValue(":senha", "suzana");
+				$buscasegura->bindValue(":nivel_acesso_id", 1);
+
+				$email = "suzana";
+
+			// Valida o cadastro 
+				$validar=$pdo->prepare("SELECT * FROM usuarios WHERE email=?");
+				$validar->execute(array($email));
+
+				if($validar->rowCount() == 0):
+					// Executa o cadastro
+						$buscasegura->execute();	
+				else: 
+					echo "Email já cadastrado!";
+				endif;
+	**/
