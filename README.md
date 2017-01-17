@@ -1,6 +1,6 @@
 # Projeto com PHP e Bootstrap
 
- Projeto realizado através do curso do *[Celke]*(https://www.youtube.com/channel/UC5ClMRHFl8o_MAaO4w7ZYug), onde ele demonstra e auxilia a criacção de um sistema administrativo com:
+ Projeto realizado através do curso do [Celke](https://www.youtube.com/channel/UC5ClMRHFl8o_MAaO4w7ZYug) no [Youtube](youtube.com), onde ele demonstra e auxilia a criacção de um sistema administrativo com:
    * PHP;
    * HTML/CSS/JS/JQuery;
    * MySql;
