@@ -4,6 +4,8 @@
    * PHP;
    * HTML/CSS/JS/JQuery;
    * MySql;
+ 
+* Alguns Pontos sobre o Projeto *
    
    * O projeto contém o CRUD completo de usuários com diferentes níveis de acesso, categorias e produtos.
    * O curso é um ótimo pra quem está começando na área assim como, só necessita de algumas alterações caso você use PHP7, que referem aos casos de utilizar MySQLi ou PDO.
